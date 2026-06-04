@@ -1,91 +1,51 @@
-# 🌾 Bhoomi Bandhu — Smart Agriculture Assistant
+# 🌾 Bhoomi Bandhu
 
-A full-stack mobile-first web application for Indian farmers providing crop info, AI disease detection, mandi prices, government schemes, weather, and more in **English, Hindi, and Telugu**.
+Bhoomi Bandhu is an AI-powered Smart Agriculture Platform designed to empower Indian farmers with accurate agricultural information, crop insights, disease detection, and market intelligence.
 
----
+## Features
 
-## 🚀 Quick Start
+* 🌱 Crop Information & Cultivation Guidance
+* 🤖 AI-Based Crop Disease Detection
+* 💊 Fertilizer Identification & Recommendations
+* 🛡️ Pesticide Information & Usage Guidelines
+* 📈 Live Market Prices & Trends
+* ☁️ Weather Forecast & Crop Advisory
+* 🏛️ Government Agriculture Schemes
+* 🌍 Multilingual Support (English, Hindi, Telugu)
+* 🎙️ Voice-Assisted Farming Support
+* 📔 Farm Diary & Notifications
 
-### Prerequisites
-- Node.js 18+
-- MongoDB (local or Atlas)
+## Tech Stack
 
-### 1. Backend Setup
-```bash
-cd backend
-cp .env.example .env      # edit .env with your API keys
-npm install
-npm run dev               # runs on http://localhost:5000
-```
+### Frontend
 
-### 2. Frontend Setup
-```bash
-cd frontend
-npm install
-npm run dev               # runs on http://localhost:5173
-```
+* React.js
+* Vite
+* CSS
 
----
+### Backend
 
-## 🔑 Environment Variables (backend/.env)
+* Node.js
+* Express.js
 
-| Key | Description |
-|-----|-------------|
-| `MONGODB_URI` | MongoDB connection string |
-| `JWT_SECRET` | Secret for JWT tokens |
-| `WEATHER_API_KEY` | OpenWeatherMap API key |
-| `AI_API_KEY` | OpenAI / Gemini API key for chatbot |
-| `MAPS_API_KEY` | Google Maps API key |
+### Database
 
-> In development, OTP codes are printed to the server console.
+* MongoDB
 
----
+### AI & Smart Features
 
-## 📱 Features
+* Computer Vision
+* Machine Learning
+* OCR Integration
 
-| Module | Description |
-|--------|-------------|
-| 🌱 **Crops** | Detailed info for 12+ Indian crops |
-| 🔬 **Disease Detection** | AI-powered plant disease detection from photos |
-| 🧪 **Fertilizer Recognition** | Identify fertilizers from product images |
-| 🛡️ **Pesticide Recognition** | Identify pesticides with hazard warnings |
-| 📊 **Mandi Rates** | Live market prices with trend charts |
-| 📋 **Govt. Schemes** | PM-KISAN, PMFBY, KCC, eNAM, PMKSY & more |
-| 🌤 **Weather** | 7-day forecast with farming advisories |
-| 🤖 **AI Chatbot** | Ask farming questions in EN/HI/TE |
-| 🎙 **Voice Assistant** | Speech-to-text & text-to-speech |
-| 📅 **Crop Calendar** | Personalized sowing-to-harvest schedule |
-| 📰 **News** | Latest agriculture news |
-| 📍 **Nearby Services** | Find fertilizer shops, soil testing centers |
-| 🌍 **Soil Analyzer** | NPK + pH based crop & fertilizer recommendations |
-| 🔔 **Notifications** | Weather, market, pest & scheme alerts |
+## Vision
 
----
+To bridge the gap between traditional farming and modern technology by providing farmers with intelligent, accessible, and multilingual digital tools.
 
-## 🏗️ Tech Stack
+## Developer
 
-- **Frontend**: React 19, Vite, Tailwind CSS, React Router, Recharts, i18next
-- **Backend**: Node.js, Express.js, MongoDB, Mongoose, JWT
-- **AI**: Rule-based + OpenAI/Gemini integration ready
-- **Languages**: English, Hindi (हिंदी), Telugu (తెలుగు)
-- **PWA**: Installable, offline-capable
+**MUTHYALA GANESH**
 
----
+GitHub: https://github.com/Muthyala-ganesh-6640
 
-## 📁 Project Structure
-
-```
-farmer/
-├── backend/
-│   ├── models/          # Mongoose models (User, Crop, Scheme)
-│   ├── routes/          # API routes (14 modules)
-│   ├── middleware/       # Auth middleware
-│   └── server.js        # Express entry point
-└── frontend/
-    └── src/
-        ├── pages/       # All 16 page components
-        ├── components/  # Layout, BottomNav
-        ├── context/     # AppContext (auth, lang, theme)
-        ├── i18n/        # EN/HI/TE translations
-        └── lib/         # Axios API client
-```
+LinkedIn: https://www.linkedin.com/in/muthyala-ganesh-kumar61909b357
