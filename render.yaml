@@ -1,0 +1,35 @@
+services:
+  - type: web_service
+    name: bhoomi-bandhu-backend
+    env: node
+    region: oregon
+    branch: main
+    root: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "5000"
+      - key: FRONTEND_URL
+        value: https://<your-frontend-service>.onrender.com
+      - key: MONGODB_URI
+        value: ""
+      - key: JWT_SECRET
+        value: ""
+      - key: WEATHER_API_KEY
+        value: ""
+      - key: AI_API_KEY
+        value: ""
+
+  - type: static_site
+    name: bhoomi-bandhu-frontend
+    region: oregon
+    branch: main
+    root: frontend
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    envVars:
+      - key: NODE_ENV
+        value: production
