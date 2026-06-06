@@ -1,4 +1,5 @@
 console.log("✅ Auth routes loaded");
+import axios from 'axios';
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -49,8 +50,30 @@ router.post('/send-otp', otpLimiter, async (req, res) => {
     );
 
     // TODO: integrate SMS provider (Twilio/MSG91)
-    console.log(`🔑 OTP for ${phone}: ${otp}`); // Dev only - remove in production
+    try {
+  await axios.post(
+    'https://control.msg91.com/api/v5/otp',
+    {
+      mobile: `91${phone}`,
+      otp: otp
+    },
+    {
+      headers: {
+        authkey: process.env.MSG91_AUTH_KEY,
+        'Content-Type': 'application/json'
+      }
+    }
+  );
 
+  console.log(`OTP sent successfully to ${phone}`);
+} catch (smsError) {
+  console.error('MSG91 Error:', smsError.response?.data || smsError.message);
+
+  return res.status(500).json({
+    success: false,
+    message: 'Failed to send OTP'
+  });
+}
     res.json({ success: true, message: 'OTP sent successfully', devOtp: process.env.NODE_ENV === 'development' ? otp : undefined });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
