@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     ph: Number,
     createdAt: { type: Date, default: Date.now },
   }],
-  otp: { code: String, expiresAt: Date, attempts: { type: Number, default: 0 } },
+  password: { type: String, select: false },
   isActive: { type: Boolean, default: true },
 }, { timestamps: true });
 

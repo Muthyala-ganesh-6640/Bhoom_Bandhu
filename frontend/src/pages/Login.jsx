@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useApp } from '../context/AppContext';
 import api from '../lib/api';
 import toast from 'react-hot-toast';
-import { Phone, KeyRound, User, Loader2, Languages } from 'lucide-react';
+import { Phone, KeyRound, User, Loader2 } from 'lucide-react';
 
 const LANGS = [
   { code: 'en', label: 'English', flag: '🇬🇧' },
@@ -16,43 +16,43 @@ export default function Login() {
   const { t } = useTranslation();
   const { login, setLang, lang } = useApp();
   const navigate = useNavigate();
-  const [step, setStep] = useState('phone'); // phone | otp
+  const [mode, setMode] = useState('login');
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
-  const [otp, setOtp] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSendOtp = async () => {
+  const handleSubmit = async () => {
     if (!/^[6-9]\d{9}$/.test(phone)) {
-      toast.error('Enter a valid 10-digit mobile number'); return;
+      toast.error('Enter a valid 10-digit mobile number');
+      return;
     }
-    setLoading(true);
-    try {
-      const res = await api.post('/auth/send-otp', { phone });
-      toast.success('OTP sent!');
-      if (res.devOtp) toast(`Dev OTP: ${res.devOtp}`, { icon: '🔑', duration: 10000 });
-      setStep('otp');
-    } catch (err) {
-      toast.error(err.message);
-    } finally { setLoading(false); }
-  };
+    if (!password) {
+      toast.error('Enter your password');
+      return;
+    }
+    if (mode === 'register' && !name) {
+      toast.error('Enter your name');
+      return;
+    }
 
-  const handleVerifyOtp = async () => {
-    if (otp.length !== 6) { toast.error('Enter 6-digit OTP'); return; }
     setLoading(true);
     try {
-      const res = await api.post('/auth/verify-otp', { phone, otp, name });
+      const endpoint = mode === 'register' ? '/auth/register' : '/auth/login';
+      const payload = { phone, password, ...(mode === 'register' ? { name } : {}) };
+      const res = await api.post(endpoint, payload);
       login(res.user, res.token);
-      toast.success('Welcome to Bhoomi Bandhu! 🌾');
+      toast.success(mode === 'register' ? 'Account created successfully' : 'Welcome back!');
       navigate('/');
     } catch (err) {
       toast.error(err.message);
-    } finally { setLoading(false); }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="min-h-dvh flex flex-col">
-      {/* Hero */}
       <div className="hero-gradient flex-1 flex flex-col items-center justify-center p-8 text-white text-center">
         <div className="text-6xl mb-4">🌾</div>
         <h1 className="text-3xl font-bold mb-2">{t('app_name')}</h1>
@@ -65,11 +65,9 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Form */}
       <div className="bg-white dark:bg-gray-900 rounded-t-3xl p-6 -mt-6 shadow-2xl">
-        {/* Language Selector */}
         <div className="flex gap-2 mb-6 justify-center">
-          {LANGS.map(l => (
+          {LANGS.map((l) => (
             <button
               key={l.code}
               onClick={() => setLang(l.code)}
@@ -81,60 +79,58 @@ export default function Login() {
         </div>
 
         <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center">
-          {step === 'phone' ? t('login') : t('enter_otp')}
+          {mode === 'register' ? t('register') : t('login')}
         </h2>
 
-        {step === 'phone' ? (
-          <div className="space-y-4">
-            <div className="relative">
-              <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-              <input
-                type="tel"
-                maxLength={10}
-                placeholder={t('phone_number')}
-                value={phone}
-                onChange={e => setPhone(e.target.value.replace(/\D/g, ''))}
-                className="input-field pl-11"
-              />
-            </div>
+        <div className="space-y-4">
+          {mode === 'register' && (
             <div className="relative">
               <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder={`${t('farmer')} Name (optional)`}
+                placeholder={t('name')}
                 value={name}
-                onChange={e => setName(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
                 className="input-field pl-11"
               />
             </div>
-            <button onClick={handleSendOtp} disabled={loading} className="btn-primary w-full">
-              {loading ? <Loader2 size={18} className="animate-spin" /> : <Phone size={18} />}
-              {t('send_otp')}
-            </button>
+          )}
+
+          <div className="relative">
+            <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+            <input
+              type="tel"
+              maxLength={10}
+              placeholder={t('phone_number')}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
+              className="input-field pl-11"
+            />
           </div>
-        ) : (
-          <div className="space-y-4">
-            <p className="text-sm text-gray-500 text-center">OTP sent to +91 {phone}</p>
-            <div className="relative">
-              <KeyRound size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-              <input
-                type="number"
-                maxLength={6}
-                placeholder={t('enter_otp')}
-                value={otp}
-                onChange={e => setOtp(e.target.value.slice(0, 6))}
-                className="input-field pl-11 text-center text-xl tracking-[0.5em] font-bold"
-              />
-            </div>
-            <button onClick={handleVerifyOtp} disabled={loading} className="btn-primary w-full">
-              {loading ? <Loader2 size={18} className="animate-spin" /> : <KeyRound size={18} />}
-              {t('verify_otp')}
-            </button>
-            <button onClick={() => setStep('phone')} className="btn-outline w-full text-sm">
-              Change Number
-            </button>
+
+          <div className="relative">
+            <KeyRound size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+            <input
+              type="password"
+              placeholder={t('password')}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="input-field pl-11"
+            />
           </div>
-        )}
+
+          <button onClick={handleSubmit} disabled={loading} className="btn-primary w-full">
+            {loading ? <Loader2 size={18} className="animate-spin" /> : <KeyRound size={18} />}
+            {mode === 'register' ? t('register') : t('login')}
+          </button>
+
+          <button
+            onClick={() => setMode(mode === 'register' ? 'login' : 'register')}
+            className="btn-outline w-full text-sm"
+          >
+            {mode === 'register' ? t('already_have_account') : t('dont_have_account')}
+          </button>
+        </div>
 
         <p className="text-center text-xs text-gray-400 mt-6">
           By continuing, you agree to our Terms of Service
