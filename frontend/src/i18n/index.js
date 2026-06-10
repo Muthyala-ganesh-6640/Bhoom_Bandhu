@@ -4,8 +4,8 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      app_name: 'Bhoomi Bandhu',
-      tagline: 'Friend of the Land',
+      app_name: 'Farm Future',
+      tagline: 'Future of Farming',
       home: 'Home', crops: 'Crops', disease: 'Disease', market: 'Market',
       weather: 'Weather', schemes: 'Schemes', chatbot: 'Chatbot',
       calendar: 'Calendar', news: 'News', nearby: 'Nearby', soil: 'Soil',
@@ -66,8 +66,8 @@ const resources = {
   },
   hi: {
     translation: {
-      app_name: 'भूमि बंधु',
-      tagline: 'किसान का साथी',
+      app_name: 'Farm Future',
+      tagline: 'किसान का भविष्य',
       home: 'होम', crops: 'फसलें', disease: 'रोग', market: 'मंडी',
       weather: 'मौसम', schemes: 'योजनाएं', chatbot: 'चैटबॉट',
       calendar: 'कैलेंडर', news: 'समाचार', nearby: 'नज़दीकी', soil: 'मिट्टी',
@@ -121,8 +121,8 @@ const resources = {
   },
   te: {
     translation: {
-      app_name: 'భూమి బంధు',
-      tagline: 'రైతు మిత్రుడు',
+      app_name: 'Farm Future',
+      tagline: 'రైతుల భవిష్యత్తు',
       home: 'హోమ్', crops: 'పంటలు', disease: 'వ్యాధి', market: 'మండీ',
       weather: 'వాతావరణం', schemes: 'పథకాలు', chatbot: 'చాట్‌బాట్',
       calendar: 'క్యాలెండర్', news: 'వార్తలు', nearby: 'సమీపంలో', soil: 'నేల',

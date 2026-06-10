@@ -70,7 +70,7 @@ mongoose
 app.get('/', (req, res) => {
   res.json({
     success: true,
-    message: '🌾 Bhoomi Bandhu Backend Running',
+    message: '🌾 Farm Future Backend Running',
   });
 });
 
@@ -78,7 +78,7 @@ app.get('/', (req, res) => {
 app.get('/api/health', (req, res) => {
   res.json({
     success: true,
-    message: '🌾 Bhoomi Bandhu API is running',
+    message: '🌾 Farm Future API is running',
     timestamp: new Date(),
   });
 });
@@ -119,5 +119,5 @@ app.use((err, req, res, next) => {
 
 // Server Start
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🌾 Bhoomi Bandhu Server running on port ${PORT}`);
+  console.log(`🌾 Farm Future Server running on port ${PORT}`);
 });

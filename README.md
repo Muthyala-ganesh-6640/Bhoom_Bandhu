@@ -1,6 +1,6 @@
-# 🌾 Bhoomi Bandhu
+# 🌾 Farm Future
 
-Bhoomi Bandhu is an AI-powered Smart Agriculture Platform designed to empower Indian farmers with accurate agricultural information, crop insights, disease detection, and market intelligence.
+Farm Future is an AI-powered Smart Agriculture Platform designed to empower Indian farmers with accurate agricultural information, crop insights, disease detection, and market intelligence.
 
 ## Features
 

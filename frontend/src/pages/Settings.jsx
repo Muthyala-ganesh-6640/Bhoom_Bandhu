@@ -73,8 +73,8 @@ export default function Settings() {
         <h2 className="font-bold text-gray-800 dark:text-gray-100 mb-3">About</h2>
         {[
           { label: 'App Version', value: 'v1.0.0' },
-          { label: 'Build', value: 'Bhoomi Bandhu 2025' },
-          { label: 'Support', value: 'support@bhoomi-bandhu.in' },
+          { label: 'Build', value: 'Farm Future 2025' },
+          { label: 'Support', value: 'support@farmfuture.in' },
         ].map((item, i) => (
           <div key={i} className="flex items-center justify-between py-2 border-b border-gray-50 dark:border-gray-700 last:border-0">
             <span className="text-sm text-gray-600 dark:text-gray-400">{item.label}</span>

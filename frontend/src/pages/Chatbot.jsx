@@ -15,7 +15,7 @@ export default function Chatbot() {
   const { t } = useTranslation();
   const { lang } = useApp();
   const [messages, setMessages] = useState([
-    { id: 0, role: 'assistant', content: lang === 'hi' ? 'नमस्ते! मैं भूमि बंधु AI सहायक हूं। खेती संबंधी कोई भी प्रश्न पूछें।' : lang === 'te' ? 'నమస్తే! నేను భూమి బంధు AI సహాయకుడిని. వ్యవసాయ సంబంధిత ఏ ప్రశ్నైనా అడగండి.' : 'Hello! I am Bhoomi Bandhu AI assistant. Ask me any farming questions!' }
+    { id: 0, role: 'assistant', content: lang === 'hi' ? 'नमस्ते! मैं Farm Future AI सहायक हूं। खेती संबंधी कोई भी प्रश्न पूछें।' : lang === 'te' ? 'నమస్తే! నేను Farm Future AI సహాయకుడిని. వ్యవసాయ సంబంధిత ఏ ప్రశ్నైనా అడగండి.' : 'Hello! I am Farm Future AI assistant. Ask me any farming questions!' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);

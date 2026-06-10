@@ -18,7 +18,7 @@ const KNOWLEDGE_BASE = [
   { pattern: /soil.*test|mitti.*janch|nela.*pariksha/i, en: 'Get free soil testing under Soil Health Card Scheme at your nearest KVK or Agriculture office. Test for N, P, K, pH, and micronutrients. Results guide fertilizer doses. Visit soilhealth.dac.gov.in.', hi: 'मृदा स्वास्थ्य कार्ड योजना के तहत नजदीकी KVK में मुफ्त मिट्टी परीक्षण करवाएं।', te: 'సాయిల్ హెల్త్ కార్డ్ పథకం కింద సమీప KVK లో ఉచిత మట్టి పరీక్ష చేయించుకోండి.' },
 ];
 
-const SYSTEM_PROMPT = (lang) => `You are Bhoomi Bandhu, an expert AI agricultural assistant for Indian farmers. You have deep knowledge of:
+const SYSTEM_PROMPT = (lang) => `You are Farm Future, an expert AI agricultural assistant for Indian farmers. You have deep knowledge of:
 - Indian agriculture: crop cultivation, fertilizers, pesticides, diseases, pests
 - Government schemes: PM-KISAN, PMFBY, KCC, PMKSY, eNAM, Soil Health Card
 - Indian farming practices, ICAR recommendations, state agriculture department guidelines

@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Bhoomi Bandhu ("Friend of the Land") is a mobile-first Smart Agriculture Platform designed for Indian farmers. The platform provides crop information, AI-powered disease and product detection, live market prices, government scheme guidance, weather forecasting, and multilingual support in English, Hindi, and Telugu. The goal is to empower farmers — especially those with limited technical literacy — with actionable agricultural knowledge at their fingertips.
+Farm Future ("Future of Farming") is a mobile-first Smart Agriculture Platform designed for Indian farmers. The platform provides crop information, AI-powered disease and product detection, live market prices, government scheme guidance, weather forecasting, and multilingual support in English, Hindi, and Telugu. The goal is to empower farmers — especially those with limited technical literacy — with actionable agricultural knowledge at their fingertips.
 
 ---
 
 ## Glossary
 
-- **Bhoomi_Bandhu**: The overall platform application (frontend + backend).
+- **Farm_Future**: The overall platform application (frontend + backend).
 - **Farmer**: A registered or guest user of the platform, primarily an Indian agricultural worker.
 - **Crop_Module**: The subsystem responsible for serving crop-specific information.
 - **Disease_Detector**: The AI subsystem that analyzes uploaded plant images to identify diseases.
@@ -60,8 +60,8 @@ Bhoomi Bandhu ("Friend of the Land") is a mobile-first Smart Agriculture Platfor
 #### Acceptance Criteria
 
 1. THE Translation_Service SHALL support English, Hindi, and Telugu as display languages.
-2. WHEN a Farmer selects a preferred language during onboarding, THE Bhoomi_Bandhu SHALL render all UI labels, messages, and content in the selected language.
-3. WHEN a Farmer changes the display language in settings, THE Bhoomi_Bandhu SHALL apply the new language to all screens without requiring a page reload.
+2. WHEN a Farmer selects a preferred language during onboarding, THE Farm_Future SHALL render all UI labels, messages, and content in the selected language.
+3. WHEN a Farmer changes the display language in settings, THE Farm_Future SHALL apply the new language to all screens without requiring a page reload.
 4. THE Translation_Service SHALL translate crop descriptions, disease reports, scheme information, and chatbot responses into the Farmer's selected language.
 5. IF a content item has no translation available for the selected language, THEN THE Translation_Service SHALL fall back to English and display a note indicating the translation is unavailable.
 
@@ -283,11 +283,11 @@ Bhoomi Bandhu ("Friend of the Land") is a mobile-first Smart Agriculture Platfor
 
 #### Acceptance Criteria
 
-1. THE Bhoomi_Bandhu SHALL be implemented as a PWA and be installable on Android and iOS devices from the browser without requiring an app store.
-2. THE Bhoomi_Bandhu SHALL cache crop information, government scheme details, and the Farmer's crop calendar data for offline access.
-3. WHEN the device has no internet connection, THE Bhoomi_Bandhu SHALL display cached content and show an "Offline Mode" indicator.
-4. WHEN the device reconnects to the internet, THE Bhoomi_Bandhu SHALL automatically synchronize any pending data and refresh cached content.
-5. IF a feature requires live data (market prices, weather, AI detection) and the device is offline, THEN THE Bhoomi_Bandhu SHALL inform the Farmer that the feature requires an internet connection.
+1. THE Farm_Future SHALL be implemented as a PWA and be installable on Android and iOS devices from the browser without requiring an app store.
+2. THE Farm_Future SHALL cache crop information, government scheme details, and the Farmer's crop calendar data for offline access.
+3. WHEN the device has no internet connection, THE Farm_Future SHALL display cached content and show an "Offline Mode" indicator.
+4. WHEN the device reconnects to the internet, THE Farm_Future SHALL automatically synchronize any pending data and refresh cached content.
+5. IF a feature requires live data (market prices, weather, AI detection) and the device is offline, THEN THE Farm_Future SHALL inform the Farmer that the feature requires an internet connection.
 
 ---
 
@@ -297,13 +297,13 @@ Bhoomi Bandhu ("Friend of the Land") is a mobile-first Smart Agriculture Platfor
 
 #### Acceptance Criteria
 
-1. THE Bhoomi_Bandhu SHALL use an agriculture-themed color scheme of green, brown, and white as primary colors throughout the UI.
-2. THE Bhoomi_Bandhu SHALL use a minimum touch target size of 44×44 pixels for all interactive buttons and links to support easy tapping on mobile devices.
-3. THE Bhoomi_Bandhu SHALL support dark mode, togglable from the settings screen.
-4. THE Bhoomi_Bandhu SHALL display icon-based navigation with text labels so that Farmers can recognize features without relying solely on text.
-5. THE Bhoomi_Bandhu SHALL be fully responsive and display correctly on screen widths from 320px to 1280px.
-6. THE Bhoomi_Bandhu SHALL achieve a minimum Lighthouse accessibility score of 90 on mobile devices.
-7. WHEN the Farmer loads any primary screen, THE Bhoomi_Bandhu SHALL complete the initial render within 3 seconds on a 4G mobile connection.
+1. THE Farm_Future SHALL use an agriculture-themed color scheme of green, brown, and white as primary colors throughout the UI.
+2. THE Farm_Future SHALL use a minimum touch target size of 44×44 pixels for all interactive buttons and links to support easy tapping on mobile devices.
+3. THE Farm_Future SHALL support dark mode, togglable from the settings screen.
+4. THE Farm_Future SHALL display icon-based navigation with text labels so that Farmers can recognize features without relying solely on text.
+5. THE Farm_Future SHALL be fully responsive and display correctly on screen widths from 320px to 1280px.
+6. THE Farm_Future SHALL achieve a minimum Lighthouse accessibility score of 90 on mobile devices.
+7. WHEN the Farmer loads any primary screen, THE Farm_Future SHALL complete the initial render within 3 seconds on a 4G mobile connection.
 
 ---
 
@@ -314,8 +314,8 @@ Bhoomi Bandhu ("Friend of the Land") is a mobile-first Smart Agriculture Platfor
 #### Acceptance Criteria
 
 1. THE Auth_Service SHALL store all farmer passwords and OTP secrets using a cryptographic hashing algorithm (bcrypt with a minimum cost factor of 12).
-2. THE Bhoomi_Bandhu SHALL transmit all data between the client and server over HTTPS using TLS 1.2 or higher.
+2. THE Farm_Future SHALL transmit all data between the client and server over HTTPS using TLS 1.2 or higher.
 3. THE Auth_Service SHALL implement rate limiting of no more than 5 OTP requests per phone number per 10-minute window to prevent abuse.
-4. THE Bhoomi_Bandhu SHALL not share or sell Farmer personal data to third parties without explicit Farmer consent.
+4. THE Farm_Future SHALL not share or sell Farmer personal data to third parties without explicit Farmer consent.
 5. WHEN a Farmer requests account deletion, THE Auth_Service SHALL permanently delete all personally identifiable information within 30 days.
-6. THE Bhoomi_Bandhu SHALL comply with the Information Technology Act, 2000 and applicable Indian data protection regulations.
+6. THE Farm_Future SHALL comply with the Information Technology Act, 2000 and applicable Indian data protection regulations.

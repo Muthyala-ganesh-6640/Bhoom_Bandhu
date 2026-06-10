@@ -1,7 +1,7 @@
 {
-  "name": "bhoomi-bandhu-backend",
+  "name": "farm-future-backend",
   "version": "1.0.0",
-  "description": "Bhoomi Bandhu Smart Agriculture Platform - Backend API",
+  "description": "Farm Future Smart Agriculture Platform - Backend API",
   "main": "server.js",
   "type": "module",
   "scripts": {
